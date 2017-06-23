@@ -1,0 +1,22 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+police <- read_csv("fatal-police-shootings-data.csv") %>% 
+  filter(city %in% c("Los Angeles", "New York", "San Francisco", 
+                     "Chicago", "San Diego"))
+```
+
+```{r}
+ggplot(data = police, aes(x = city, y = age)) + 
+  geom_boxplot() + 
+  labs(title = "Median Age of Those Shot and Killed By Police", 
+       subtitle = "Data: Washington Post", 
+       x = "")
+```
